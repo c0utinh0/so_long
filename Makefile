@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/06 19:25:19 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/13 18:03:31 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 SRCS =  so_long.c	\
+		utils/map/create_map.c	\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -37,7 +38,7 @@ all: $(NAME)
 $(NAME): $(SRC)
 	$(MLX)
 	$(LIBFT)
-	$(CC) $(CFLAGS) $(SRCS) $(INCLUDE) -o $(NAME) 
+	$(CC) $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE) -g -o $(NAME) 
 
 clean:
 	rm -f $(OBJS)
