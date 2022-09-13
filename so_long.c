@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:03:20 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/13 18:54:57 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/13 19:51:35 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int main(void)
 	void	*floor;
 	int		img_width;
 	int		img_height;
-	int line;
-	int temp = 0;
+//	int line;
+//	int temp = 0;
 	
 	create_map(&map);
-	line = map.lines;
+//	line = map.lines;
 	ft_printf("\n");
-	while (line-- > 0)
-		ft_printf("%s", map.map[temp++]);
-
+//	while (line-- > 0)
+//		ft_printf("%s", map.map[temp++]);
+	render_map(&map);
 	config.mlx = mlx_init();
 	config.window = mlx_new_window(config.mlx, 1280, 640, "MyGame");
 

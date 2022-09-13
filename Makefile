@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/13 18:03:31 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/13 19:54:14 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCLUDE = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 SRCS =  so_long.c	\
 		utils/map/create_map.c	\
+		utils/map/render_map.c	\
 
 OBJS = $(SRCS:.c=.o)
 
