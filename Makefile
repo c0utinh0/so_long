@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/13 19:54:14 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/15 18:53:09 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,15 +54,16 @@ linux: $(SRC)
 
 clean:
 	rm -f $(OBJS)
+	rm -rf so_long.dSYM
 	$(CLIBFT)
 	$(CMLX)
-	$(CMLX_L)
+#	$(CMLX_L)
 
 fclean:
-	rm -f $(NAME) a.out
+	rm -f $(NAME)
 	$(FCLIBFT)
 	$(CMLX)
-	$(CMLX_L)
+#	$(CMLX_L)
 
 re: fclean all
 

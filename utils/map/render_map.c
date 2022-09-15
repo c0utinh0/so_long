@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:25:52 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/13 19:58:20 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:10:40 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static int	print_map(char	op, int	x, int	y, t_config	*config, t_map	*map)
 		mlx_put_image_to_window(config->mlx, config->window, map->wall, x * PX, y * PX);
 	else if (op == 'C')
 		mlx_put_image_to_window(config->mlx, config->window, map->collect, x * PX, y * PX);
+	else if (op == 'P')
+		mlx_put_image_to_window(config->mlx, config->window, map->player, x * PX, y * PX);
+	else if (op == 'E')
+		mlx_put_image_to_window(config->mlx, config->window, map->exit, x * PX, y * PX);
+
+
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/13 18:49:47 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:10:04 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	upload_imgs(t_map	*map, t_config	*config)
 	map->wall = mlx_xpm_file_to_image(config->mlx, WALL, &map->img_width, &map->img_height);
 	map->floor = mlx_xpm_file_to_image(config->mlx, FLOOR, &map->img_width, &map->img_height);
 	map->collect = mlx_xpm_file_to_image(config->mlx, COLLECT, &map->img_width, &map->img_height);
+	map->player = mlx_xpm_file_to_image(config->mlx, PLAYER, &map->img_width, &map->img_height);
+	map->exit = mlx_xpm_file_to_image(config->mlx, EXIT, &map->img_width, &map->img_height);
 	return (0);
 }
 
