@@ -12,42 +12,32 @@
 
 #include "../../so_long.h"
 
-int	print_sprite(char	op)
+static int	print_map(char	op, int	x, int	y, t_config	*config, t_map	*map)
 {
 	if	(op == '0')
-		write(1, "-", 1);
+		mlx_put_image_to_window(config->mlx, config->window, map->floor, x * PX, y * PX);
 	else if (op == '1')
-		write(1, "#", 1);
-	else if (op == 'P')
-		write(1, "P", 1);
-	else if (op == 'C')
-		write(1, "C", 1);
-	else if (op == 'E')
-		write(1, "E", 1);
-
-
-
+		mlx_put_image_to_window(config->mlx, config->window, map->wall, x * PX, y * PX);
 	return (0);
 }
 
-int	render_map(t_map	*obj)
+int	render_map(t_map	*obj, t_config	*config)
 {
-	int	line;
-	int	temp;
-	int i;
+	int	lines;
 
-	i = 0;
-	temp = 0;
-	line = obj->lines;
-	while (line-- > 0)
+	obj->axis_x = 0;
+	obj->axis_y = 0;
+	lines = obj->lines;
+	while (lines-- > 0)
 	{
-		while (obj->map[temp][i] != '\0')
+		while (obj->map[obj->axis_y][obj->axis_x] != '\0')
 		{
-			print_sprite(obj->map[temp][i++]);
+			print_map(obj->map[obj->axis_y][obj->axis_x], obj->axis_x, obj->axis_y, config, obj);
+			obj->axis_x++;
 		}
 		write(1, "\n", 1);
-		i = 0;
-		temp++;
+		obj->axis_x = 0;
+		obj->axis_y++;
 	}
 	return (0);
 }

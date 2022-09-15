@@ -18,6 +18,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
+INCLUDE_L = -L ./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
 SRCS =  so_long.c	\
 		utils/map/create_map.c	\
 		utils/map/render_map.c	\
@@ -32,7 +34,11 @@ FCLIBFT = make -C libft fclean
 
 MLX = make -C mlx
 
+MLX_L = make -C mlx_linux
+
 CMLX = make -C mlx clean
+
+CMLX_L = make -C mlx_linux clean
 
 all: $(NAME)
 
@@ -41,16 +47,25 @@ $(NAME): $(SRC)
 	$(LIBFT)
 	$(CC) $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE) -g -o $(NAME) 
 
+linux: $(SRC)
+	$(MLX_L)
+	$(LIBFT)
+	$(CC) -g $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE_L)
+
 clean:
 	rm -f $(OBJS)
 	$(CLIBFT)
 	$(CMLX)
+	$(CMLX_L)
 
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) a.out
 	$(FCLIBFT)
 	$(CMLX)
+	$(CMLX_L)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+re_linux: fclean linux
+
+.PHONY: all clean fclean re re_linux
