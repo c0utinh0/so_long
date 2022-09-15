@@ -18,6 +18,8 @@ static int	print_map(char	op, int	x, int	y, t_config	*config, t_map	*map)
 		mlx_put_image_to_window(config->mlx, config->window, map->floor, x * PX, y * PX);
 	else if (op == '1')
 		mlx_put_image_to_window(config->mlx, config->window, map->wall, x * PX, y * PX);
+	else if (op == 'C')
+		mlx_put_image_to_window(config->mlx, config->window, map->collect, x * PX, y * PX);
 	return (0);
 }
 

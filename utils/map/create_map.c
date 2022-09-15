@@ -18,6 +18,7 @@ int	upload_imgs(t_map	*map, t_config	*config)
 	map->img_height = PX;
 	map->wall = mlx_xpm_file_to_image(config->mlx, WALL, &map->img_width, &map->img_height);
 	map->floor = mlx_xpm_file_to_image(config->mlx, FLOOR, &map->img_width, &map->img_height);
+	map->collect = mlx_xpm_file_to_image(config->mlx, COLLECT, &map->img_width, &map->img_height);
 	return (0);
 }
 

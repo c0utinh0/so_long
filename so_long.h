@@ -15,6 +15,7 @@
 
 # define WALL "./assets/wall.xpm"
 # define FLOOR "./assets/floor.xpm"
+# define COLLECT "./assets/collectible.xpm"
 # define PX 64
 
 # include <unistd.h>
@@ -37,6 +38,7 @@ typedef struct s_map
 	char	**map;
 	void	*wall;
 	void	*floor;
+	void	*collect;
 	int		img_width;
 	int		img_height;
 	int		axis_x;
