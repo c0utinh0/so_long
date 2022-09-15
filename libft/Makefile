@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:01:24 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/06 10:36:08 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/15 19:59:40 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ CC = cc
 NAME = libft.a
 
 CFLAGS = -Wall -Wextra -Werror
+
+RM = rm -rf
+
+AR = ar -rcs
 
 SRCS =  ft_isalpha.c	\
 		ft_isdigit.c	\
@@ -66,19 +70,19 @@ FCPF = make -C ft_printf fclean
 all: $(NAME) 
 
 $(NAME): $(OBJS) 
-	ar -rcs $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
-	$(PF)
-	$(CC) -I . -c $(CFLAGS) $(SRCS)
+	@$(PF)
+	@$(CC) -I . -c $(CFLAGS) $(SRCS)
 
 clean:
-	rm -f $(OBJS)
-	$(CPF)
+	@$(RM) $(OBJS)
+	@$(CPF)
 
 fclean: clean
-	rm -f $(NAME)
-	$(FCPF)
+	@$(RM) $(NAME)
+	@$(FCPF)
 
 re: fclean all
 

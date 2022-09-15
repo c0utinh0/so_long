@@ -6,11 +6,11 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:25:52 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/15 18:10:40 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:20:59 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
 static int	print_map(char	op, int	x, int	y, t_config	*config, t_map	*map)
 {

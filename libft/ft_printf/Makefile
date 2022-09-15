@@ -6,15 +6,19 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 11:17:28 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/07/07 10:40:05 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/15 20:06:56 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CC = cc -I . -c
 
 NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
+
+AR = ar -rcs
+
+RM = rm -rf
 
 SRCS =  ft_choice_param.c	\
 		ft_pf_strlen.c		\
@@ -32,16 +36,16 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME) 
 
 $(NAME): $(OBJS) 
-	ar -rcs $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
-	$(CC) -I . -c $(CFLAGS) $(SRCS)
+	@$(CC) $(CFLAGS) $(SRCS)
 
 clean:
-	rm -f $(OBJS)
+	@$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 

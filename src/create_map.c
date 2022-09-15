@@ -6,11 +6,11 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/15 18:10:04 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:20:50 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
 int	upload_imgs(t_map	*map, t_config	*config)
 {

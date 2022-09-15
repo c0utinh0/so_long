@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/15 18:53:09 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/15 20:19:34 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ INCLUDE = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 INCLUDE_L = -L ./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 SRCS =  so_long.c	\
-		utils/map/create_map.c	\
-		utils/map/render_map.c	\
+		src/create_map.c	\
+		src/render_map.c	\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -43,9 +43,9 @@ CMLX_L = make -C mlx_linux clean
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(MLX)
-	$(LIBFT)
-	$(CC) $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE) -g -o $(NAME) 
+	@$(MLX)
+	@$(LIBFT)
+	@$(CC) $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE) -g -o $(NAME) 
 
 linux: $(SRC)
 	$(MLX_L)
@@ -53,17 +53,17 @@ linux: $(SRC)
 	$(CC) -g $(CFLAGS) $(SRCS) $(NAME) $(INCLUDE_L)
 
 clean:
-	rm -f $(OBJS)
-	rm -rf so_long.dSYM
-	$(CLIBFT)
-	$(CMLX)
-#	$(CMLX_L)
+	@rm -f $(OBJS)
+	@$(CLIBFT)
+	@$(CMLX)
+#	@$(CMLX_L)
 
 fclean:
-	rm -f $(NAME)
-	$(FCLIBFT)
-	$(CMLX)
-#	$(CMLX_L)
+	@rm -f $(NAME)
+	@rm -rf so_long.dSYM
+	@$(FCLIBFT)
+	@$(CMLX)
+#	@$(CMLX_L)
 
 re: fclean all
 
