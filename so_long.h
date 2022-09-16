@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/15 18:50:46 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/16 10:25:04 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ typedef struct s_map
 int	create_map(t_map	*obj, t_config	*config);
 int	render_map(t_map	*obj, t_config	*config);
 int	upload_imgs(t_map	*map, t_config	*config);
+int	keyhook(int keycode, t_config *config);
 
 #endif

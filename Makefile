@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/15 20:19:34 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/16 10:24:43 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ INCLUDE_L = -L ./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -
 SRCS =  so_long.c	\
 		src/create_map.c	\
 		src/render_map.c	\
+		src/key_events.c	\
 
 OBJS = $(SRCS:.c=.o)
 
