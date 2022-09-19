@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/16 10:25:04 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:51:58 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,12 @@
 # include "mlx/mlx.h"
 # include <fcntl.h>
 
-typedef struct s_config
+typedef struct s_game
 {
 	void	*mlx;
 	void	*window;
 	int		window_width;
 	int		window_height;
-}	t_config;
-
-typedef struct s_map
-{
 	int		lines;
 	char	**map;
 	void	*wall;
@@ -47,11 +43,11 @@ typedef struct s_map
 	int		img_height;
 	int		axis_x;
 	int		axis_y;
-}	t_map;
+}	t_game;
 
-int	create_map(t_map	*obj, t_config	*config);
-int	render_map(t_map	*obj, t_config	*config);
-int	upload_imgs(t_map	*map, t_config	*config);
-int	keyhook(int keycode, t_config *config);
+int	create_map(t_game	*game);
+int	render_map(t_game	*game);
+int	upload_imgs(t_game	*game);
+int	keyhook(int keycode, t_game *game);
 
 #endif
