@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/19 14:55:15 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:32:01 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	upload_imgs(t_game	*game)
 	game->img_height = PX;
 	game->wall = mlx_xpm_file_to_image(game->mlx, WALL, &game->img_width, &game->img_height);
 	game->floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &game->img_width, &game->img_height);
-	game->collect = mlx_xpm_file_to_image(game->mlx, COLLECT, &game->img_width, &game->img_height);
+	game->collectible = mlx_xpm_file_to_image(game->mlx, COLLECTIBLE, &game->img_width, &game->img_height);
 	game->player = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->img_width, &game->img_height);
 	game->exit = mlx_xpm_file_to_image(game->mlx, EXIT, &game->img_width, &game->img_height);
 	return (0);

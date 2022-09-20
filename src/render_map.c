@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:25:52 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/19 14:59:47 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:32:46 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@ static int	print_map(char	op, int	x, int	y, t_game	*game)
 	else if (op == '1')
 		mlx_put_image_to_window(game->mlx, game->window, game->wall, x * PX, y * PX);
 	else if (op == 'C')
-		mlx_put_image_to_window(game->mlx, game->window, game->collect, x * PX, y * PX);
+		mlx_put_image_to_window(game->mlx, game->window, game->collectible, x * PX, y * PX);
 	else if (op == 'P')
 		mlx_put_image_to_window(game->mlx, game->window, game->player, x * PX, y * PX);
 	else if (op == 'E')
 		mlx_put_image_to_window(game->mlx, game->window, game->exit, x * PX, y * PX);
-
-
 	return (0);
 }
 
