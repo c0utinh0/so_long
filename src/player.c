@@ -8,23 +8,55 @@
 /*   Created: 2022/09/19 17:42:21 by dcoutinh          #+#    #+#             */
 /*   Updated: 2022/09/19 21:04:18 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/* *i************************************************************************* */
 
 #include "../so_long.h"
 
+int movement(char key, t_game *game, t_movement	*move)
+{
+	if(key == 'w')
+	{
+		move->next_x = game->player_x;
+		move->next_y = game->player_y;
+		--move->next_y;
+	}
+	else if(key == 's')
+	{
+		move->next_x = game->player_x;
+		move->next_y = game->player_y;
+		++move->next_y;
+	}
+	else if(key == 'a')
+	{
+		move->next_x = game->player_x;
+		move->next_y = game->player_y;
+		--move->next_x;
+	}
+	else if(key == 'd')
+	{
+		move->next_x = game->player_x;
+		move->next_y = game->player_y;
+		++move->next_x;
+	}
+	return (0);
+}
+
 int	player_move(char	key, t_game	*game)
 {
-	int	next_x;
-	int	next_y;
+	t_movement	move;
 
-	(void)key;
-	next_x = game->player_x;
-	next_y = game->player_y;
-	if (game->map[--next_y][next_x] == '0')
+	movement(key, game, &move);
+	if (game->map[move.next_y][move.next_x] == '0' || game->map[move.next_y][move.next_x] == 'C')
 	{
-//		mlx_destroy_image(game->mlx, game->floor);
-		game->map[next_y][next_x] = 'P';
+		game->map[move.next_y][move.next_x] = 'P';
 		game->map[game->player_y][game->player_x] = '0';
+	}
+	else if (game->map[move.next_y][move.next_x] == 'E')
+	{
+		game->map[move.next_y][move.next_x] = 'P';
+		game->map[game->player_y][game->player_x] = '0';
+		ft_printf("exit\n");
+		exit(0);
 	}
 	player_position(game);
 	return (0);

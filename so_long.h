@@ -26,6 +26,12 @@
 # include "mlx/mlx.h"
 # include <fcntl.h>
 
+typedef struct s_movement
+{
+	int	next_x;
+	int	next_y;
+}	t_movement;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -54,5 +60,6 @@ int	keyhook(int keycode, t_game *game);
 int	key_action(char key, t_game *game);
 int	player_position(t_game *game);
 int	player_move(char key, t_game *game);
+int movement(char key, t_game *game, t_movement *move);
 
 #endif

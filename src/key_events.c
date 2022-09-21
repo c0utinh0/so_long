@@ -14,7 +14,6 @@
 
 int	key_action(char key, t_game *game)
 {
-	(void)key;
 	player_position(game);
 	player_move(key, game);
 	render_map(game);
@@ -23,7 +22,14 @@ int	key_action(char key, t_game *game)
 
 int	keyhook(int keycode, t_game *game)
 {
-	if (keycode == 13)
+	ft_printf("%d\n", keycode); //REMOVER ANTES DE ENTREGAR
+	if (keycode == 44)
 		key_action('w', game);
+	else if (keycode == 101)
+		key_action('s', game);
+	else if (keycode == 105)
+		key_action('a', game);
+	else if (keycode == 97)
+		key_action('d', game);
 	return (0);
 }
