@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/22 13:57:06 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:44:47 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	player_move(char key, t_game *game);
 int movement(char key, t_game *game, t_movement *move);
 int	init_validation(int argc, char	*path);
 void	print_error(char	*msg);
+int	map_validation(t_game	*game);
 
 #endif
 

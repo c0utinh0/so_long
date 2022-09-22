@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/22 14:09:38 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:43:41 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int	create_map(t_game	*game, char	*path)
 		game->map[++game->lines] = str;
 	}
 	game->window_height = game->lines;
+	map_validation(game);
 	return(0);
 }
