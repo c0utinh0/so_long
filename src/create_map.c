@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/19 17:32:01 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:09:38 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ int	upload_imgs(t_game	*game)
 	return (0);
 }
 
-int	create_map(t_game	*game)
+int	create_map(t_game	*game, char	*path)
 {
 	char	*str;
 	int		fd;
 	int		len;
 
 	game->lines = 0;
-	fd = open("map.ber", O_RDONLY);
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		print_error("Invalid file");
 	str = get_next_line(fd);
 	len = ft_strlen(str);
 	game->window_width = len;

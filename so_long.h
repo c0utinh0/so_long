@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/19 20:43:22 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:57:06 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_game
 	int		axis_y;
 }	t_game;
 
-int	create_map(t_game	*game);
+int	create_map(t_game	*game, char	*path);
 int	render_map(t_game	*game);
 int	upload_imgs(t_game	*game);
 int	keyhook(int keycode, t_game *game);
@@ -61,5 +61,8 @@ int	key_action(char key, t_game *game);
 int	player_position(t_game *game);
 int	player_move(char key, t_game *game);
 int movement(char key, t_game *game, t_movement *move);
+int	init_validation(int argc, char	*path);
+void	print_error(char	*msg);
 
 #endif
+

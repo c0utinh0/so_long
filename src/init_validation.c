@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   init_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 17:03:20 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/22 14:00:42 by dcoutinh         ###   ########.fr       */
+/*   Created: 2022/09/22 10:54:07 by dcoutinh          #+#    #+#             */
+/*   Updated: 2022/09/22 14:13:50 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int main(int argc, char	**argv)
+static int ft_path(char	*path)
 {
-	t_game	game;
+	int	len;
 
-	init_validation(argc, argv[1]);
-	game.mlx = mlx_init();
-	create_map(&game, argv[1]);
-	game.window = mlx_new_window(game.mlx, (game.window_width - 1) * PX, game.window_height * PX, "OrbSpaceHunter");
-	upload_imgs(&game);
-	render_map(&game);
-	mlx_key_hook(game.window, keyhook, &game);
-	mlx_loop(game.mlx);
+	len = ft_strlen(path);
+	while(len > 4)
+	{
+		path++;
+		len--;
+	}
+	return(ft_strncmp(path, ".ber", len));
+}
+
+void	print_error(char	*msg)
+{
+	ft_printf("Error: %s\n", msg);
+	exit(0);
+}
+
+int	init_validation(int argc, char	*path)
+{
+	if (argc != 2)
+		print_error("Invalid arguments");
+	if (ft_path(path))
+		print_error("Invalid file type");
 	return (0);
 }
