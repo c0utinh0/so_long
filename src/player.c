@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:21 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/19 21:04:18 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:26:01 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* *i************************************************************************* */
 
@@ -91,6 +91,6 @@ int	player_position(t_game	*game)
 		x = 0;
 		y++;
 	}
-	ft_printf("\n%d ,%d\n", game->player_x, game->player_y);
+	ft_printf("\n%d ,%d\n", game->player_x, game->player_y); //REMOVER
 	return (0);
 }

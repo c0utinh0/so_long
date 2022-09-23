@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_validation.c                                  :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 10:54:07 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/23 15:41:13 by dcoutinh         ###   ########.fr       */
+/*   Created: 2022/09/23 15:40:44 by dcoutinh          #+#    #+#             */
+/*   Updated: 2022/09/23 15:57:35 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int ft_path(char	*path)
+void	print_error(char	*msg)
 {
-	int	len;
-
-	len = ft_strlen(path);
-	while(len > 4)
-	{
-		path++;
-		len--;
-	}
-	return(ft_strncmp(path, ".ber", len));
+	ft_printf("Error: %s\n", msg);
+	exit(0);
 }
 
-int	init_validation(int argc, char	*path)
+void	free_print_error(t_game	*game, char	*msg)
 {
-	if (argc != 2)
-		print_error("Invalid arguments");
-	if (ft_path(path))
-		print_error("Invalid file type");
-	return (0);
+	(void)game; //REMOVER
+	ft_printf("\nMEM FREE\n");	//ALTERAR PARA FUNC Q LIBERA MEM
+	print_error(msg);
 }

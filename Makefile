@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/22 11:29:28 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/23 15:47:57 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS =  so_long.c	\
 		src/render_map.c	\
 		src/key_events.c	\
 		src/player.c	\
+		src/validation.c	\
 		src/init_validation.c	\
+		src/map_validation.c	\
 
 OBJS = $(SRCS:.c=.o)
 
