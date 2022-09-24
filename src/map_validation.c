@@ -18,6 +18,17 @@ static void char_validation(t_game	*game, char	ch)
 		free_print_error(game, "Invalid character map");
 }
 
+static	void	line_validation(t_game *game, char	*line)
+{
+	int	len;
+
+	len = game->window_width;
+	len = len - 2;
+	if	(line[0] != '1' || line[len] != '1')
+		free_print_error(game, "Invalid map");
+}
+
+
 int	map_validation(t_game	*game)
 {
 	char	**aux;
@@ -29,8 +40,9 @@ int	map_validation(t_game	*game)
 	y = 0;
 	lines = game->lines;
 	aux = game->map;
-	while (lines-- > 0)
+	while (lines > 0)
 	{
+		line_validation(game, aux[y]);
 		while (aux[y][x] != '\0')
 		{
 			char_validation(game, aux[y][x]);
@@ -38,6 +50,7 @@ int	map_validation(t_game	*game)
 		}
 		x = 0;
 		y++;
+		lines--;
 	}
 	return(0);
 }
