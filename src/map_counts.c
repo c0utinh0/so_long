@@ -36,14 +36,10 @@ int	map_counts(t_game	*game)
 	game->count_player = 0;
 	game->count_collectible = 0;
 	game->count_exit = 0;
-
 	while (lines-- > 0)
 	{
-		while (x < game->window_width)
-		{
-			char_count(game,aux[y][x]);
-			x++;
-		}
+		while (aux[y][x] != '\0')
+			char_count(game, aux[y][x++]);
 		x = 0;
 		y++;
 	}

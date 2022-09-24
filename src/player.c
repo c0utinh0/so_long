@@ -81,7 +81,7 @@ int	player_position(t_game	*game)
 	aux = game->map;
 	while (lines-- > 0)
 	{
-		while (aux[y][x] != '\n')
+		while (aux[y][x] != '\0')
 		{
 			if (aux[y][x] == 'P')
 			{
