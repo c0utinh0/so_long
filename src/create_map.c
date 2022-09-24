@@ -31,6 +31,7 @@ int	create_map(t_game	*game, char	*path)
 	int		len;
 
 	game->lines = 0;
+	game->movement = 0;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		print_error("Invalid file");

@@ -51,6 +51,7 @@ typedef struct s_game
 	int		img_height;
 	int		axis_x;
 	int		axis_y;
+	int		movement;
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;

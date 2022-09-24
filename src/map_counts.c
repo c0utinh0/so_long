@@ -22,6 +22,12 @@ static void char_count(t_game	*game, char	ch)
 		game->count_exit++;
 }
 
+static void	count_validation(t_game	*game)
+{
+	if	(game->count_player != 1 || game->count_exit != 1)
+		free_print_error(game, "Invalid map");
+}
+
 int	map_counts(t_game	*game)
 {
 	char	**aux;
@@ -33,6 +39,7 @@ int	map_counts(t_game	*game)
 	y = 0;
 	lines = game->lines;
 	aux = game->map;
+	game->movement = 0;
 	game->count_player = 0;
 	game->count_collectible = 0;
 	game->count_exit = 0;
@@ -43,6 +50,7 @@ int	map_counts(t_game	*game)
 		x = 0;
 		y++;
 	}
+	count_validation(game);
 	return(0);
 }
 

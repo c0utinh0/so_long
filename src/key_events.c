@@ -14,6 +14,7 @@
 
 int	key_action(char key, t_game *game)
 {
+	game->movement++;
 	player_position(game);
 	player_move(key, game);
 	render_map(game);

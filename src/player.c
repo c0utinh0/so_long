@@ -97,6 +97,7 @@ int	player_position(t_game	*game)
 		x = 0;
 		y++;
 	}
+	ft_printf("\nMovement: %d\n", game->movement);
 	ft_printf("\n%d ,%d\n", game->player_x, game->player_y); //REMOVER
 	ft_printf("Player count: %d\n",game->count_player);	//REMOVER
 	ft_printf("Collectible count: %d\n",game->count_collectible);	//REMOVER

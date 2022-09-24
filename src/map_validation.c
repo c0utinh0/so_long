@@ -15,7 +15,7 @@
 static void char_validation(t_game	*game, char	ch)
 {
 	if (ch != 'P' && ch != 'E' && ch != '0' && ch != '1' &&  ch != 'C' && ch != '\n')
-		free_print_error(game, "Invalid character map");
+		free_print_error(game, "Invalid map");
 }
 
 static void	line_validation(t_game *game, int	line, char	*str_line)
@@ -45,6 +45,7 @@ int	map_validation(t_game	*game)
 	y = 0;
 	lines = game->lines;
 	aux = game->map;
+	map_counts(game);
 	while (lines > 0)
 	{
 		line_validation(game, y, aux[y]);
