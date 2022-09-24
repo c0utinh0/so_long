@@ -23,17 +23,17 @@ int	key_action(char key, t_game *game)
 int	keyhook(int keycode, t_game *game)
 {
 	ft_printf("%d\n", keycode); //REMOVER ANTES DE ENTREGAR
-//	if (keycode == 44)				//LINUX
-	if (keycode == 13)				//MAC
+	if (keycode == 44)				//LINUX
+//	if (keycode == 13)				//MAC
 		key_action('w', game);
-//	else if (keycode == 101)		//LINUX
-	else if (keycode == 1)		//MAC
+	else if (keycode == 101)		//LINUX
+//	else if (keycode == 1)		//MAC
 		key_action('s', game);
-//	else if (keycode == 105)		//LINUX
-	else if (keycode == 0)		//MAC
+	else if (keycode == 105)		//LINUX
+//	else if (keycode == 0)		//MAC
 		key_action('a', game);
-//	else if (keycode == 97)			//LINUX
-	else if (keycode == 2)		//MAC
+	else if (keycode == 97)			//LINUX
+//	else if (keycode == 2)		//MAC
 		key_action('d', game);
 	return (0);
 }

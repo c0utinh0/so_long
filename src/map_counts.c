@@ -10,12 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static void char_count(t_game	*game, char	ch)
 {
-	if (ch != 'P')
+	if (ch == 'P')
 		game->count_player++;
+	else if (ch == 'C')
+		game->count_collectible++;
+	else if (ch == 'E')
+		game->count_exit++;
 }
 
 int	map_counts(t_game	*game)
@@ -35,9 +39,9 @@ int	map_counts(t_game	*game)
 
 	while (lines-- > 0)
 	{
-		while (aux[y][x] != '\0')
+		while (x < game->window_width)
 		{
-			char_count(game, aux[y][x]);
+			char_count(game,aux[y][x]);
 			x++;
 		}
 		x = 0;

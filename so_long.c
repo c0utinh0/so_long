@@ -19,8 +19,8 @@ int main(int argc, char	**argv)
 	init_validation(argc, argv[1]);
 	game.mlx = mlx_init();
 	create_map(&game, argv[1]);
-	map_counts(&game);
 	map_validation(&game);
+	map_counts(&game);
 	game.window = mlx_new_window(game.mlx, (game.window_width - 1) * PX, game.window_height * PX, "OrbSpaceHunter");
 	upload_imgs(&game);
 	render_map(&game);
