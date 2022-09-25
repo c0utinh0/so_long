@@ -34,6 +34,17 @@ static void	line_validation(t_game *game, int	line, char	*str_line)
 		free_print_error(game, "Invalid map");
 }
 
+static void map_format(t_game	*game)
+{
+	int	x;
+	int	y;
+
+	x = game->window_width;
+	y = game->window_height;
+	if (--x == y)
+		free_print_error(game, "Invalid map");
+}
+
 int	map_validation(t_game	*game)
 {
 	char	**aux;
@@ -46,6 +57,7 @@ int	map_validation(t_game	*game)
 	lines = game->lines;
 	aux = game->map;
 	map_counts(game);
+	map_format(game);
 	while (lines > 0)
 	{
 		line_validation(game, y, aux[y]);
