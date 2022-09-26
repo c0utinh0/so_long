@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:33:20 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/23 16:23:07 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:26:49 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	line_validation(t_game *game, int	line, char	*str_line)
 
 	len = game->window_width;
 	len = len - 2;
-	if	(line == 0 || line == game->lines)
+	if ((int)ft_strlen(str_line) != game->window_width)
+		free_print_error(game, "Invalid map");
+	if	(line == 0 || line == (game->lines - 1))
 		while (len-- > -1)
 		{
 			if(*str_line++ != '1')
@@ -60,12 +62,12 @@ int	map_validation(t_game	*game)
 	map_format(game);
 	while (lines > 0)
 	{
-		line_validation(game, y, aux[y]);
 		while (aux[y][x] != '\0')
 		{
 			char_validation(game, aux[y][x]);
 			x++;
 		}
+		line_validation(game, y, aux[y]);
 		x = 0;
 		y++;
 		lines--;
