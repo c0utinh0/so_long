@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 10:18:51 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/26 11:54:45 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/26 14:57:23 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	move_action(char key, t_game *game)
 {
-	game->movement++;
 	player_position(game);
 	player_move(key, game);
 	render_map(game);

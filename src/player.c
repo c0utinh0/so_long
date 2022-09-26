@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:21 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/23 15:26:01 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:00:15 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* *i************************************************************************* */
 
@@ -48,17 +48,20 @@ int	player_move(char	key, t_game	*game)
 	movement(key, game, &move);
 	if (game->map[move.next_y][move.next_x] == '0')
 	{
+		game->movement++;
 		game->map[move.next_y][move.next_x] = 'P';
 		game->map[game->player_y][game->player_x] = '0';
 	}
 	else if (game->map[move.next_y][move.next_x] == 'C')
 	{
+		game->movement++;
 		game->map[move.next_y][move.next_x] = 'P';
 		game->map[game->player_y][game->player_x] = '0';
 		game->count_collectible--;
 	}
 	else if (game->map[move.next_y][move.next_x] == 'E' && game->count_collectible == 0)
 	{
+		game->movement++;
 		game->map[move.next_y][move.next_x] = 'P';
 		game->map[game->player_y][game->player_x] = '0';
 		ft_printf("exit\n");	//TRATAR A SAIDA COM FREE
