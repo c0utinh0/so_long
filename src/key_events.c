@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 10:18:51 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/26 14:57:23 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/27 09:29:49 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static int	move_action(char key, t_game *game)
 
 static void	exit_action(t_game *game)
 {
-    mlx_destroy_window(game->mlx, game->window);
     free_exit(game);
 }
 
 int	click_x(t_game *game)
 {
-    mlx_destroy_window(game->mlx, game->window);
     free_exit(game);
 	return (0);
 }

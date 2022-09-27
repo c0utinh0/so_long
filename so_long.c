@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:03:20 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/26 15:54:51 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/27 09:25:06 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ int main(int argc, char	**argv)
 	t_game	game;
 
 	init_validation(argc, argv[1]);
-	game.mlx = mlx_init();
+	if(!(game.mlx = mlx_init()))
+		exit(0);
 	create_map(&game, argv[1]);
 	map_validation(&game);
-	game.window = mlx_new_window(game.mlx, (game.window_width - 1) * PX, game.window_height * PX, "OrbSpaceHunter");
+	if(!(game.window = mlx_new_window(game.mlx, (game.window_width - 1) * PX, game.window_height * PX, "OrbSpaceHunter")))
+		exit(0);
 	upload_imgs(&game);
 	render_map(&game);
 	mlx_key_hook(game.window, keyhook, &game);
