@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/26 11:54:57 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:52:36 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ typedef struct s_game
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;
+//	int		s_x;
+//	int		s_y;
+//	int		d_x;
+//	int		s_y;
 }	t_game;
 
 int	create_map(t_game	*game, char	*path);
@@ -71,6 +75,7 @@ void	free_print_error(t_game	*game, char	*msg);
 void	free_exit(t_game *game);
 int	map_validation(t_game	*game);
 int	map_counts(t_game	*game);
+int	path(t_game	*game, char	*path);
 
 #endif
 
