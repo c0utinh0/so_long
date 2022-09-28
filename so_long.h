@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 13:45:31 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:08:40 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ void	free_print_error(t_game	*game, char	*msg);
 void	free_exit(t_game *game);
 int	map_validation(t_game	*game);
 int	map_counts(t_game	*game);
-int	path(t_game	*game, char	*path);
-int dfs(char **map, int i, int j, char	**visited); 
+int	path_validation(t_game	*game, char	*path);
 
 #endif
 
