@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:24 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:02:59 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //DFS + memoization, Time O(m*n), Space O(m*n) 
 int dfs(char **map, int i, int j, char	**visited) 
 {
-	int m = 40;
-	int n = 5;
+	int m = 5;
+	int n = 8;
 	
 	int len_map = ft_strlen(map[0]);
 	int len_visited = ft_strlen(visited[0]);
@@ -28,6 +28,13 @@ int dfs(char **map, int i, int j, char	**visited)
 	if(i < 0 || i >= m || j < 0 || j >= n || map[i][j] == '1' || visited[i][j] == '1')
 		return(0);
 	visited[i][j] = '1';
+	ft_printf("\n");
+	ft_printf("%s\n", visited[0]);
+	ft_printf("%s\n", visited[1]);
+	ft_printf("%s\n", visited[2]);
+	ft_printf("%s\n", visited[3]);
+	ft_printf("%s\n", visited[4]);
+	ft_printf("\n");
 	dfs(map, i-1, j, visited); // Move left
 	dfs(map, i+1, j, visited); // Move Right
 	dfs(map, i, j-1, visited); //Move top
@@ -71,10 +78,10 @@ int path(t_game	*game, char	*path)
 		i = 0;
 		visited[line] = str;
 	}
-	ft_printf("\n%s", visited[line]); //REMOVER
+	ft_printf("%s", visited[line]); //REMOVER
 
 	dfs(map, 1, 2, visited);
-	if(!visited[3][6]) {
+	if(visited[3][6] == '0') {
 		return (0);
 	}
 	return (1);
