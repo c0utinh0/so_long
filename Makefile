@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/27 15:25:45 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/28 17:14:29 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS =  so_long.c	\
 		src/create_map.c	\
 		src/render_map.c	\
 		src/key_events.c	\
-		src/player.c	\
+		src/positions.c	\
 		src/validation.c	\
 		src/init_validation.c	\
 		src/map_validation.c	\

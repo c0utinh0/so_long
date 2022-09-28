@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 16:08:40 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:17:42 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	render_map(t_game	*game);
 int	upload_imgs(t_game	*game);
 int	keyhook(int keycode, t_game *game);
 int	click_x(t_game *game);
-int	player_position(t_game *game);
+int	positions(t_game *game);
 int	player_move(char key, t_game *game);
 int movement(char key, t_game *game, t_movement *move);
 int	init_validation(int argc, char	*path);
