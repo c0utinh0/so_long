@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 17:17:42 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:25:43 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_game
 	void	*player;
 	int		player_x;
 	int		player_y;
+	int		exit_x;
+	int		exit_y;
 	void	*exit;
 	int		img_width;
 	int		img_height;
@@ -55,6 +57,7 @@ typedef struct s_game
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;
+	char	**m_collect;
 //	int		s_x;
 //	int		s_y;
 //	int		d_x;

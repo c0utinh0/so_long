@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:21 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 17:17:06 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:48:50 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* *i************************************************************************* */
 
@@ -92,6 +92,12 @@ int	positions(t_game	*game)
 				game->player_x = x;
 				game->player_y = y;
 			}
+			else if (aux[y][x] == 'E')
+			{
+				ft_printf("E");		//REMOVER
+				game->exit_x = x;
+				game->exit_y = y;
+			}
 			else
 				ft_printf("#");	//REMOVER
 			x++;
@@ -101,7 +107,8 @@ int	positions(t_game	*game)
 		y++;
 	}
 	ft_printf("\nMovement: %d\n", game->movement);
-	ft_printf("\n%d ,%d\n", game->player_x, game->player_y); //REMOVER
+	ft_printf("\nPlayer Pos: %d ,%d\n", game->player_x, game->player_y); //REMOVER
+	ft_printf("\nExit: Pos: %d ,%d\n", game->exit_x, game->exit_y); //REMOVER
 	ft_printf("Player count: %d\n",game->count_player);	//REMOVER
 	ft_printf("Collectible count: %d\n",game->count_collectible);	//REMOVER
 	ft_printf("Exit count: %d\n",game->count_exit);	//REMOVER
