@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/29 08:01:08 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:27:20 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct s_movement
 	int	next_x;
 	int	next_y;
 }	t_movement;
+
+typedef struct s_position
+{
+	int	pos_x;
+	int	pos_y;
+}	t_position;
 
 typedef struct s_game
 {
@@ -57,7 +63,6 @@ typedef struct s_game
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;
-	char	**m_collect;
 //	int		s_x;
 //	int		s_y;
 //	int		d_x;
@@ -80,6 +85,6 @@ int	map_validation(t_game	*game);
 int	map_counts(t_game	*game);
 int	path_validation(t_game	*game, char	*path);
 int map_visited(t_game	*game, char	*path);
+t_position	*collectible_positions(t_game	*game);
 
 #endif
-

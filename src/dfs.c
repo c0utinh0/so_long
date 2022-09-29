@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/29 08:00:51 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:45:34 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,9 @@ int map_visited(t_game	*game, char	*path)
 		visited[line] = str;
 	}
 	ft_printf("%s", visited[line]); //REMOVER
-
-	dfs(game, 1, 2, visited);
-	if(visited[3][6] == '0') {
+	dfs(game, game->player_y, game->player_x, visited);
+	if(visited[game->exit_y][game->exit_x] == '0') {
 		return (0);
 	}
 	return (1);
-/*
-	dfs(aidj, sx, sy, visited);
-	if(!visited[dx][dy]) {
-		return (0);
-	}
-	return (1);
-*/
 }
-
