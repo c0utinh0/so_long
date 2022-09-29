@@ -6,7 +6,7 @@
 #    By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 16:32:52 by dcoutinh          #+#    #+#              #
-#    Updated: 2022/09/28 17:14:29 by dcoutinh         ###   ########.fr        #
+#    Updated: 2022/09/29 08:08:01 by dcoutinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS =  so_long.c	\
 		src/map_validation.c	\
 		src/path_validation.c	\
 		src/map_counts.c	\
+		src/dfs.c	\
 
 OBJS = $(SRCS:.c=.o)
 
