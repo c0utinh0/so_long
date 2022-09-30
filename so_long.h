@@ -86,6 +86,6 @@ int	map_counts(t_game	*game);
 int	path_validation(t_game	*game, char	*path);
 char	**map_visited(t_game	*game, char	*path);
 void	collectible_positions(t_position	**pos, t_game	*game);
-int path_valid(t_game	*game, char	**visited, t_position	*collects[]);
+int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit);
 
 #endif

@@ -16,9 +16,17 @@ int	path_validation(t_game	*game, char	*path)
 {
 	char	**visited;
 	t_position	*collects[game->count_collectible];
+	int i;
 
+	i = 0;
 	positions(game);
 	collectible_positions(collects, game);
-	visited = map_visited(game, path);
-	return (path_valid(game, visited, collects));
+	while (i < 2)
+	{
+		visited = map_visited(game, path);
+		if(!(path_valid(game, visited, collects, i)))
+			return (0);
+		i++;
+	}
+	return (1);
 }

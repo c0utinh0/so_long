@@ -34,19 +34,20 @@ int	click_x(t_game *game)
 int	keyhook(int keycode, t_game *game)
 {
 	ft_printf("%d\n", keycode); //REMOVER ANTES DE ENTREGAR
-//	if (keycode == 44)				//LINUX
-	if (keycode == 13)				//MAC
+	if (keycode == 44)				//LINUX
+//	if (keycode == 13)				//MAC
 		move_action('w', game);
-//	else if (keycode == 101)		//LINUX
-	else if (keycode == 1)		//MAC
+	else if (keycode == 101)		//LINUX
+//	else if (keycode == 1)		//MAC
 		move_action('s', game);
-//	else if (keycode == 105)		//LINUX
-	else if (keycode == 0)		//MAC
+	else if (keycode == 105)		//LINUX
+//	else if (keycode == 0)		//MAC
 		move_action('a', game);
-//	else if (keycode == 97)			//LINUX
-	else if (keycode == 2)		//MAC
+	else if (keycode == 97)			//LINUX
+//	else if (keycode == 2)		//MAC
 		move_action('d', game);
-	else if (keycode == 53)
+//	else if (keycode == 53)
+	else if (keycode == 65307)
 		exit_action(game);
 	return (0);
 }

@@ -37,32 +37,44 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	return(0);
 }
 
-int path_valid(t_game	*game, char	**visited, t_position	*collects[])
+int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit)
 {
 	int	j;
-	int x;
-	int	y;
-	j = game->count_collectible;
-	visited[game->exit_y][game->exit_x] = '0';
-	x = collects[0]->pos_x;
-	y = collects[0]->pos_y;
-//	while(j > 0)
-//	{
-//		dfs(game, game->player_y, game->player_x, visited);
-//	}
-	
-	dfs(game, game->player_y, game->player_x, visited);
-//	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
-	if(visited[x][y] == '0') {
-		return (0);
+//	int x;
+//	int	y;
+	j = 0;
+	if (op_exit)
+	{
+		dfs(game, game->player_y, game->player_x, visited);
+		if(visited[game->exit_y][game->exit_x] == '0') // ENDEREÇO DA SAIDA
+			return (0);
 	}
+	else
+	{
+		visited[game->exit_y][game->exit_x] = '0';
+		dfs(game, game->player_y, game->player_x, visited);
+		while(j < game->count_collectible)
+		{
+			if(visited[collects[j]->pos_x][collects[j]->pos_x] == '0') 
+				return (0);
+			j++;
+		}
+
+	}
+//	visited[game->exit_y][game->exit_x] = '1';
+//dfs(game, game->player_y, game->player_x, visited);
+//	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
+//	if(visited[x][y] == '0') {
+//	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
+//		return (0);
+	
 	return (1);
 }
 
 char	**map_visited(t_game	*game, char	*path)
 {
 	char **visited;
-	char	**map;
+//	char	**map;
 	char	*str;
 	int	len;
 	int	lines;
@@ -70,7 +82,7 @@ char	**map_visited(t_game	*game, char	*path)
 	int fd;
 	int	line;
 
-	map = game->map;
+//	map = game->map;
 	line = 0;
 	lines = game->lines;
 	i = 0;
