@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:42:21 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/29 12:12:17 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:35:14 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* *i************************************************************************* */
 
@@ -71,22 +71,22 @@ int	player_move(char	key, t_game	*game)
 	return (0);
 }
 
-static t_position	*add_position(int x, int y)
+static void add_position(t_position	**pos, int x, int y)
 {
-	t_position	*p = calloc(1, sizeof(t_position));
-
+	t_position	*p = (t_position *)malloc(sizeof(t_position));
+	
 	p->pos_x = x;
 	p->pos_y = y;
-	return (p);
+	*pos = p;
 }
 
-t_position	*collectible_positions(t_game	*game)
+
+void	collectible_positions(t_position	**collects, t_game	*game)
 {
 	char	**aux;
 	int		x;
 	int		y;
 	int		lines;
-	t_position	*collects[game->count_collectible];
 	int	i;
 
 	x = 0;
@@ -99,14 +99,13 @@ t_position	*collectible_positions(t_game	*game)
 		while (aux[y][x] != '\0')
 		{
 			if (aux[y][x] == 'C')
-				collects[i++] = add_position(x, y);
+				add_position(&collects[i++], x, y);
 			x++;
 		}
 		x = 0;
 		y++;
 		lines--;
 	}
-	return(*collects);
 }
 
 int	positions(t_game	*game)
