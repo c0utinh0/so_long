@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/30 13:51:06 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:15:52 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,23 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	return(0);
 }
 
-int path_valid(t_game	*game, char	**visited)
+int path_valid(t_game	*game, char	**visited, t_position	*collects[])
 {
-	/*
-	visited[game->exit_y][game->exit_x] = '0'
-	while(j > 0)
-	{
-		dfs(game, game->player_y, game->player_x, visited);
-	}
-	*/
+	int	j;
+	int x;
+	int	y;
+	j = game->count_collectible;
+	visited[game->exit_y][game->exit_x] = '0';
+	x = collects[0]->pos_x;
+	y = collects[0]->pos_y;
+//	while(j > 0)
+//	{
+//		dfs(game, game->player_y, game->player_x, visited);
+//	}
+	
 	dfs(game, game->player_y, game->player_x, visited);
 //	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
-	if(visited[--game->exit_y][game->exit_x] == '0') {
+	if(visited[x][y] == '0') {
 		return (0);
 	}
 	return (1);
@@ -62,7 +67,6 @@ char	**map_visited(t_game	*game, char	*path)
 	int	len;
 	int	lines;
 	int i;
-	int j;
 	int fd;
 	int	line;
 
@@ -70,7 +74,6 @@ char	**map_visited(t_game	*game, char	*path)
 	line = 0;
 	lines = game->lines;
 	i = 0;
-	j = game->count_collectible;
 	fd = open(path, O_RDONLY);
 	str = get_next_line(fd);
 	str++;
