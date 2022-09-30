@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/29 08:45:34 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:51:06 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	m = game->lines;
 	n = ft_strlen(visited[0]);
 
-	if(i < 0 || i >= m || j < 0 || j >= n || game->map[i][j] == '1' || visited[i][j] == '1')
+	if(i < 0 || i >= m || j < 0 || j >= n || game->map[i][j] == 'E' || game->map[i][j] == '1' || visited[i][j] == '1')
 		return(0);
 	visited[i][j] = '1';
 	ft_printf("\n");
@@ -37,7 +37,24 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	return(0);
 }
 
-int map_visited(t_game	*game, char	*path)
+int path_valid(t_game	*game, char	**visited)
+{
+	/*
+	visited[game->exit_y][game->exit_x] = '0'
+	while(j > 0)
+	{
+		dfs(game, game->player_y, game->player_x, visited);
+	}
+	*/
+	dfs(game, game->player_y, game->player_x, visited);
+//	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
+	if(visited[--game->exit_y][game->exit_x] == '0') {
+		return (0);
+	}
+	return (1);
+}
+
+char	**map_visited(t_game	*game, char	*path)
 {
 	char **visited;
 	char	**map;
@@ -45,6 +62,7 @@ int map_visited(t_game	*game, char	*path)
 	int	len;
 	int	lines;
 	int i;
+	int j;
 	int fd;
 	int	line;
 
@@ -52,6 +70,7 @@ int map_visited(t_game	*game, char	*path)
 	line = 0;
 	lines = game->lines;
 	i = 0;
+	j = game->count_collectible;
 	fd = open(path, O_RDONLY);
 	str = get_next_line(fd);
 	str++;
@@ -72,9 +91,5 @@ int map_visited(t_game	*game, char	*path)
 		visited[line] = str;
 	}
 	ft_printf("%s", visited[line]); //REMOVER
-	dfs(game, game->player_y, game->player_x, visited);
-	if(visited[game->exit_y][game->exit_x] == '0') {
-		return (0);
-	}
-	return (1);
+	return (visited);
 }

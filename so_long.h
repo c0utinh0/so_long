@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/30 09:39:26 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:51:04 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	free_exit(t_game *game);
 int	map_validation(t_game	*game);
 int	map_counts(t_game	*game);
 int	path_validation(t_game	*game, char	*path);
-int map_visited(t_game	*game, char	*path);
+char	**map_visited(t_game	*game, char	*path);
 void	collectible_positions(t_position	**pos, t_game	*game);
+int path_valid(t_game	*game, char	**visited);
 
 #endif
