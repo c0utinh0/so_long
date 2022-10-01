@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-static	int dfs(t_game	*game, int i, int j, char	**visited) 
+static	int dfs(t_game	*game, int i, int j, char	**visited, int op_exit) 
 {
 	int m;
 	int n; //len visited
@@ -20,8 +20,16 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	m = game->lines;
 	n = ft_strlen(visited[0]);
 
-	if(i < 0 || i >= m || j < 0 || j >= n || game->map[i][j] == 'E' || game->map[i][j] == '1' || visited[i][j] == '1')
+	if (op_exit)
+	{
+		if(i < 0 || i >= m || j < 0 || j >= n || game->map[i][j] == '1' || visited[i][j] == '1')
 		return(0);
+	}
+	else
+	{
+		if(i < 0 || i >= m || j < 0 || j >= n || game->map[i][j] == 'E' || game->map[i][j] == '1' || visited[i][j] == '1')
+		return(0);
+	}
 	visited[i][j] = '1';
 	ft_printf("\n");
 	ft_printf("%s\n", visited[0]);
@@ -30,33 +38,34 @@ static	int dfs(t_game	*game, int i, int j, char	**visited)
 	ft_printf("%s\n", visited[3]);
 	ft_printf("%s\n", visited[4]); //REMOVER
 	ft_printf("\n");
-	dfs(game, i-1, j, visited); // Move left
-	dfs(game, i+1, j, visited); // Move Right
-	dfs(game, i, j-1, visited); //Move top
-	dfs(game, i, j+1, visited); //Move bottom		
+	dfs(game, i-1, j, visited, op_exit); // Move left
+	dfs(game, i+1, j, visited, op_exit); // Move Right
+	dfs(game, i, j-1, visited, op_exit); //Move top
+	dfs(game, i, j+1, visited, op_exit); //Move bottom		
 	return(0);
 }
 
 int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit)
 {
 	int	j;
+	int index;
 //	int x;
 //	int	y;
 	j = 0;
+	index = 0;
 	if (op_exit)
 	{
-		dfs(game, game->player_y, game->player_x, visited);
-		if(visited[game->exit_y][game->exit_x] == '0') // ENDEREÇO DA SAIDA
-			return (0);
+		dfs(game, game->player_y, game->player_x, visited, op_exit);
+		if(visited[game->exit_y][game->exit_x] == '1') // ENDEREÇO DA SAIDA
+			index++;
 	}
 	else
 	{
-		visited[game->exit_y][game->exit_x] = '0';
-		dfs(game, game->player_y, game->player_x, visited);
+		dfs(game, game->player_y, game->player_x, visited, op_exit);
 		while(j < game->count_collectible)
 		{
-			if(visited[collects[j]->pos_x][collects[j]->pos_x] == '0') 
-				return (0);
+			if(visited[collects[j]->pos_x][collects[j]->pos_x] == '1') 
+				index++;
 			j++;
 		}
 
@@ -68,7 +77,7 @@ int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit
 //	if(visited[game->exit_y][game->exit_x] == '0') { // ENDEREÇO DA SAIDA
 //		return (0);
 	
-	return (1);
+	return (index);
 }
 
 char	**map_visited(t_game	*game, char	*path)
