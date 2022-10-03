@@ -21,7 +21,7 @@ int main(int argc, char	**argv)
 		exit(0);
 	create_map(&game, argv[1]);
 	map_validation(&game);
-	ft_printf("\nSaida: %d\n", path_validation(&game, argv[1])); // REMOVER O PRINTF
+	path_validation(&game, argv[1]);
 	if(!(game.window = mlx_new_window(game.mlx, (game.window_width - 1) * PX, game.window_height * PX, "OrbSpaceHunter")))
 		exit(0);
 	upload_imgs(&game);

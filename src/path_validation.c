@@ -18,19 +18,30 @@ int	path_validation(t_game	*game, char	*path)
 	t_position	*collects[game->count_collectible];
 	int i;
 	int ret;
+	int valid;
 
 	i = 0;
+	ret = 0;
 
 	positions(game);
 	collectible_positions(collects, game);
 	visited = map_visited(game, path);
-	ret = path_valid(game, visited, collects, i);
-	ft_printf("Path para Coletáveis: \n%d\n", ret);
-	if(!(game->count_collectible == ret))
-		return (0);
+	valid = path_valid(game, visited, collects, i);
+	ft_printf("Proliferado com a saida fechada\n");
+	ft_printf("Coletáveis: %d\n", game->count_collectible);
+	ft_printf("Path Coletáveis: %d\n", valid);
+	if(game->count_collectible == valid)
+		ret = valid;
 	i++;
 	visited = map_visited(game, path);
-	if(!(path_valid(game, visited, collects, i)))
-		return (0);
-	return (1);
+	valid = path_valid(game, visited, collects, i);	
+	ft_printf("Proliferado com a saida aberta\n");
+	ft_printf("Path Saida: %d\n", valid);
+	if(valid == 1)
+		ret = ret + valid;
+	ft_printf("\nRet total: %d\n", ret);
+	ft_printf("Necessário para sair: %d\n", game->count_collectible + 1);
+	if(!(ret == (game->count_collectible + 1)))
+		free_print_error(game, "Invalid map");
+	return (0);
 }

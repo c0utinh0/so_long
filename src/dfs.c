@@ -64,7 +64,7 @@ int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit
 		dfs(game, game->player_y, game->player_x, visited, op_exit);
 		while(j < game->count_collectible)
 		{
-			if(visited[collects[j]->pos_x][collects[j]->pos_x] == '1') 
+			if(visited[collects[j]->pos_y][collects[j]->pos_x] == '1') 
 				index++;
 			j++;
 		}
