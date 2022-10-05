@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 09:54:57 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:52:15 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_game
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;
+	int		op_exit;
 }	t_game;
 
 int		create_map(t_game	*game, char	*path);
@@ -84,6 +85,8 @@ int		path_validation(t_game	*game, char	*path);
 char	**map_visited(t_game	*game, char	*path);
 void	collectible_positions(t_position	**pos, t_game	*game);
 int		path_valid(t_game *game, char **visited,
-			t_position *collects[], int op_exit);
+		t_position *collects[]);
+//int		path_valid(t_game *game, char **visited,
+//			t_position *collects[], int op_exit);
 
 #endif
