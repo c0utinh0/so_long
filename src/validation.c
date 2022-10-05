@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:40:44 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 13:48:58 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:19:28 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,22 @@ void	print_error(char	*msg)
 
 void	free_print_error(t_game	*game, char	*msg)
 {
-	free(game->map); //REMOVER
-	ft_printf("\nTRATAR O FREE\n");	//ALTERAR PARA FUNC Q LIBERA MEM
-	print_error(msg);
+	ft_printf("\n%s", msg);
+	free_exit(game);
 }
 
 void	free_exit(t_game	*game)
 {
-	free(game->map); //REMOVER
+	int lines;
+
+	lines = game->lines;
+	while (lines > -1)
+		free(game->map[lines--]);
+	free(game->map);
+	mlx_destroy_image(game->mlx, game->wall);
+	mlx_destroy_image(game->mlx, game->floor);
+	mlx_destroy_image(game->mlx, game->collectible);
+	mlx_destroy_image(game->mlx, game->player);
 	mlx_destroy_window(game->mlx, game->window);
-	ft_printf("\nTRATAR O FREE\n");	//ALTERAR PARA FUNC Q LIBERA MEM
 	exit(0);
 }
