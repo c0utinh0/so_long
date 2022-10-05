@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 09:30:59 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:54:57 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,27 @@ typedef struct s_game
 	int		count_player;
 	int		count_collectible;
 	int		count_exit;
-//	int		s_x;
-//	int		s_y;
-//	int		d_x;
-//	int		s_y;
 }	t_game;
 
-int	create_map(t_game	*game, char	*path);
-int	map_init_count(t_game	*game, char	*path);
-int	render_map(t_game	*game);
-int	upload_imgs(t_game	*game);
-int	keyhook(int keycode, t_game *game);
-int	click_x(t_game *game);
-int	positions(t_game *game);
-int	player_move(char key, t_game *game);
-int movement(char key, t_game *game, t_movement *move);
-int	init_validation(int argc, char	*path);
+int		create_map(t_game	*game, char	*path);
+int		map_init_count(t_game	*game, char	*path);
+int		render_map(t_game	*game);
+int		upload_imgs(t_game	*game);
+int		keyhook(int keycode, t_game *game);
+int		click_x(t_game *game);
+int		positions(t_game *game);
+int		player_move(char key, t_game *game);
+int		movement(char key, t_game *game, t_movement *move);
+int		init_validation(int argc, char	*path);
 void	print_error(char	*msg);
 void	free_print_error(t_game	*game, char	*msg);
 void	free_exit(t_game *game);
-int	map_validation(t_game	*game);
-int	map_counts(t_game	*game);
-int	path_validation(t_game	*game, char	*path);
+int		map_validation(t_game	*game);
+int		map_counts(t_game	*game);
+int		path_validation(t_game	*game, char	*path);
 char	**map_visited(t_game	*game, char	*path);
 void	collectible_positions(t_position	**pos, t_game	*game);
-int path_valid(t_game	*game, char	**visited, t_position	*collects[], int	op_exit);
+int		path_valid(t_game *game, char **visited,
+			t_position *collects[], int op_exit);
 
 #endif
