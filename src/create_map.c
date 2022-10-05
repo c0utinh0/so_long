@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 14:43:41 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:35:10 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,27 @@ int	create_map(t_game	*game, char	*path)
 {
 	char	*str;
 	int		fd;
-	int		len;
+	int		i;
 
-	game->lines = 0;
+	i = 0;
 	game->movement = 0;
+	map_init_count(game, path);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		print_error("Invalid file");
 	str = get_next_line(fd);
-	len = ft_strlen(str);
-	game->window_width = len;
-	game->map = ft_calloc(len + 1, sizeof(char *));
+//	len = ft_strlen(str);
+//	game->window_width = len;
+	game->map = ft_calloc(game->lines, sizeof(char *));
 	if	(!game->map)
 		return (1);
-	game->map[game->lines] = str;
+	game->map[i] = str;
 	while (str)
 	{
-		ft_printf("%s", game->map[game->lines]); //REMOVER
+		ft_printf("%s", game->map[i]); //REMOVER
 		str = get_next_line(fd);
-		game->map[++game->lines] = str;
+		game->map[++i] = str;
 	}
-	game->window_height = game->lines;
+//	game->window_height = game->lines;
 	return(0);
 }

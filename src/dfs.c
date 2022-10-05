@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/30 14:15:52 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:42:54 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	**map_visited(t_game	*game, char	*path)
 	str = get_next_line(fd);
 	str++;
 	len = ft_strlen(str);
-	visited = ft_calloc(--len, sizeof(char *));
+	visited = ft_calloc(lines, sizeof(char *));
 	while (str[i] != '\0')
 			str[i++] = '0';
 	i = 0;

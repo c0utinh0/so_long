@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/30 13:59:22 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:30:59 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_game
 }	t_game;
 
 int	create_map(t_game	*game, char	*path);
+int	map_init_count(t_game	*game, char	*path);
 int	render_map(t_game	*game);
 int	upload_imgs(t_game	*game);
 int	keyhook(int keycode, t_game *game);
