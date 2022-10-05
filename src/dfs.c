@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 11:38:49 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:42:31 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ char	**map_visited(t_game	*game, char	*path)
 		map_visited_util(str, &i);
 		visited[line] = str;
 	}
+	close(fd);
 	return (visited);
 }

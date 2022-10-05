@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 10:18:51 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 07:30:14 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:46:18 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,26 @@ static int	move_action(char key, t_game *game)
 
 static void	exit_action(t_game *game)
 {
-    free_exit(game);
+	free_exit(game);
 }
 
 int	click_x(t_game *game)
 {
-    free_exit(game);
+	free_exit(game);
 	return (0);
 }
 
 int	keyhook(int keycode, t_game *game)
 {
-	ft_printf("%d\n", keycode); //REMOVER ANTES DE ENTREGAR
-//	if (keycode == 44)				//LINUX
-	if (keycode == 13)				//MAC
+	if (keycode == 13)
 		move_action('w', game);
-//	else if (keycode == 101)		//LINUX
-	else if (keycode == 1)		//MAC
+	else if (keycode == 1)
 		move_action('s', game);
-//	else if (keycode == 105)		//LINUX
-	else if (keycode == 0)		//MAC
+	else if (keycode == 0)
 		move_action('a', game);
-//	else if (keycode == 97)			//LINUX
-	else if (keycode == 2)		//MAC
+	else if (keycode == 2)
 		move_action('d', game);
 	else if (keycode == 53)
-//	else if (keycode == 65307)
 		exit_action(game);
 	return (0);
 }
