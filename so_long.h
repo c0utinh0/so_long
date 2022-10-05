@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 11:41:53 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:21:18 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ char	**map_visited(t_game	*game, char	*path);
 void	collectible_positions(t_position	**pos, t_game	*game);
 int		path_valid(t_game *game, char **visited,
 		t_position *collects[]);
+void	positions_utils(char **aux, t_game *game, int x, int y);
 
 #endif

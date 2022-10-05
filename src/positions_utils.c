@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   positions_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 15:40:44 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 13:48:58 by dcoutinh         ###   ########.fr       */
+/*   Created: 2022/10/05 14:11:28 by dcoutinh          #+#    #+#             */
+/*   Updated: 2022/10/05 14:21:36 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	print_error(char	*msg)
+void	positions_utils(char **aux, t_game *game, int x, int y)
 {
-	ft_printf("Error: %s\n", msg);
-	exit(0);
-}
+	int		lines;
 
-void	free_print_error(t_game	*game, char	*msg)
-{
-	free(game->map); //REMOVER
-	ft_printf("\nTRATAR O FREE\n");	//ALTERAR PARA FUNC Q LIBERA MEM
-	print_error(msg);
-}
-
-void	free_exit(t_game	*game)
-{
-	free(game->map); //REMOVER
-	mlx_destroy_window(game->mlx, game->window);
-	ft_printf("\nTRATAR O FREE\n");	//ALTERAR PARA FUNC Q LIBERA MEM
-	exit(0);
+	lines = game->lines;
+	while (lines-- > 0)
+	{
+		while (aux[y][x] != '\0')
+		{
+			if (aux[y][x] == 'P')
+			{
+				game->player_x = x;
+				game->player_y = y;
+			}
+			else if (aux[y][x] == 'E')
+			{
+				game->exit_x = x;
+				game->exit_y = y;
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
 }
