@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 17:01:46 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 09:03:39 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 10:48:15 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	map_init_count(t_game	*game, char	*path)
 	if (fd == -1)
 		print_error("Invalid file");
 	str = get_next_line(fd);
+	if (!str)
+		print_error("Empty file");
 	game->window_width = ft_strlen(str);
 	while (str)
 	{

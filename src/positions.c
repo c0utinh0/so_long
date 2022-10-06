@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:34:37 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 08:41:09 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 10:43:40 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	player_move(char key, t_game *game)
 		game->movement++;
 		game->map[move.next_y][move.next_x] = 'P';
 		game->map[game->player_y][game->player_x] = '0';
-		free_print_error_mlx(game, "You Win!!!");
+		free_exit_mlx(game, "You Win!!!");
 	}
 	return (0);
 }

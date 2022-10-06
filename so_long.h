@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:05:33 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 08:56:31 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:01:35 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		init_validation(int argc, char	*path);
 void	print_error(char	*msg);
 void	free_print_error(t_game	*game, char	*msg);
 void	free_print_error_mlx(t_game	*game, char	*msg);
+void	free_exit_mlx(t_game	*game, char	*msg);
 int		map_validation(t_game	*game);
 int		map_counts(t_game	*game);
 int		path_validation(t_game	*game, char	*path);
