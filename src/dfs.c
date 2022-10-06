@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:56:47 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 09:00:55 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 09:50:40 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	**map_visited(t_game	*game, char	*path)
 		free_print_error(game, "Invalid file");
 	str = get_next_line(fd);
 	str++;
-	visited = ft_calloc(game->lines, sizeof(char *));
+	visited = ft_calloc(game->lines + 1, sizeof(char *));
 	map_visited_util(str, &i);
 	visited[line] = str;
 	while ((game->lines - 1) != line)

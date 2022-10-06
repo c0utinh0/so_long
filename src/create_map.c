@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:34:00 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 13:54:47 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 09:50:19 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	create_map(t_game	*game, char	*path)
 	if (fd == -1)
 		print_error("Invalid file");
 	str = get_next_line(fd);
-	game->map = ft_calloc(game->lines, sizeof(char *));
+	game->map = ft_calloc(game->lines + 1, sizeof(char *));
 	if (!game->map)
 		return (1);
 	game->map[i] = str;
