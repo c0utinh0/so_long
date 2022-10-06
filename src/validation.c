@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:40:44 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/05 17:19:28 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 08:58:38 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,13 @@ void	print_error(char	*msg)
 	exit(0);
 }
 
-void	free_print_error(t_game	*game, char	*msg)
+void	free_print_error_mlx(t_game	*game, char	*msg)
 {
-	ft_printf("\n%s", msg);
-	free_exit(game);
-}
-
-void	free_exit(t_game	*game)
-{
-	int lines;
+	int	lines;
 
 	lines = game->lines;
+	ft_printf("\n%s\n", msg);
+	lines--;
 	while (lines > -1)
 		free(game->map[lines--]);
 	free(game->map);
@@ -37,5 +33,18 @@ void	free_exit(t_game	*game)
 	mlx_destroy_image(game->mlx, game->collectible);
 	mlx_destroy_image(game->mlx, game->player);
 	mlx_destroy_window(game->mlx, game->window);
+	exit(0);
+}
+
+void	free_print_error(t_game	*game, char	*msg)
+{
+	int	lines;
+
+	lines = game->lines;
+	ft_printf("\nError: %s\n", msg);
+	lines--;
+	while (lines > -1)
+		free(game->map[lines--]);
+	free(game->map);
 	exit(0);
 }
