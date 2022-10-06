@@ -6,7 +6,7 @@
 /*   By: dcoutinh <dcoutinh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 17:01:46 by dcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 08:58:04 by dcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 09:03:39 by dcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	count_validation(t_game	*game)
 {
 	if (game->count_player != 1 || game->count_exit
 		!= 1 || game->count_collectible == 0)
-		free_print_error(game, "Invalid map");
+		free_print_error(game, "Invalid map (Count Validation)");
 	if (game->count_collectible > 100)
 		free_print_error(game, "Max 100 Collectibles");
 }
